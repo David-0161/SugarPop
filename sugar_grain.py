@@ -8,6 +8,7 @@
 import pygame as pg
 import pymunk
 from settings import SCALE, HEIGHT
+from Sounds import *
 
 class sugar_grain:
     def __init__(self, space, x, y, friction=0.3):
@@ -41,7 +42,7 @@ class sugar_grain:
 
         # Add the body and shape to the space
         self.space.add(self.body, self.shape)
-        
+        self.sound_played = False
     def update(self):
         """
         Update method for sugar_grain.
