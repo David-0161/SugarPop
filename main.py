@@ -2,7 +2,7 @@
 # Module Name: Sugar Pop Main Module
 # Project: Sugar Pop Program
 # Date: Nov 17, 2024
-# By: Brett W. Huffman
+# By: David Ozoagu
 # Description: The main implementation of the sugar pop game
 #############################################################
 
@@ -276,7 +276,7 @@ class Game:
                 self.level_grain_dropping = True
                 # Disable the timer after the first trigger
                 pg.time.set_timer(START_FLOW, 0)
-                #nonee
+                
             elif event.type == LOAD_NEW_LEVEL:
                 pg.time.set_timer(LOAD_NEW_LEVEL, 0)  # Clear the timer
                 self.intro_image = None

@@ -2,7 +2,7 @@
 # Module Name: Sugar Pop Static Item Module
 # Project: Sugar Pop Program
 # Date: Nov 17, 2024
-# By: Brett W. Huffman
+# By: David Ozoagu
 # Description: The static item implementation of the sugar pop game
 #############################################################
 import pygame as pg
