@@ -18,8 +18,7 @@ import sugar_grain
 import bucket
 import level
 import message_display
-import os
-from Sounds import *
+from sounds import *
 
 class Game:
     def __init__(self) -> None:
@@ -52,20 +51,11 @@ class Game:
         self.current_line = None
         self.message_display = message_display.MessageDisplay(font_size=72)
         
-        # Load the intro image
-        try:
-            self.intro_image = pg.image.load("Sugar.png").convert()
-            scale_height = self.intro_image.get_height() * WIDTH / self.intro_image.get_width()
-            self.intro_image = pg.transform.scale(self.intro_image, (WIDTH, int(scale_height)))
-        except pg.error as e:
-            print(f"Error loading image: {e}")
-            self.intro_image = None
-        # file_path = os.path.join("images", "SugarPop.png")
-        # self.intro_image = pg.image.load(file_path).convert()
-        # self.intro_image = pg.image.load("./images/SugarPop.png").convert()  # Load the intro image
+        # # Load the intro image
+        self.intro_image = pg.image.load("./images/Sugar.png").convert()  # Load the intro image
         # Get new height based on correct scale
-        # scale_height = self.intro_image.get_height() * WIDTH / self.intro_image.get_width()
-        # self.intro_image = pg.transform.scale(self.intro_image, (WIDTH, int(scale_height)))  # Scale to screen resolution
+        scale_height = self.intro_image.get_height() * WIDTH / self.intro_image.get_width()
+        self.intro_image = pg.transform.scale(self.intro_image, (WIDTH, int(scale_height)))  # Scale to screen resolution
         
         pg.time.set_timer(LOAD_NEW_LEVEL, 2000)  # Load in 2 seconds
 
@@ -167,7 +157,7 @@ class Game:
                     if not self.level_complete and self.check_all_buckets_exploded():
                         self.level_complete = True
                         self.message_display.show_message("Level Complete!", 2)
-                        self.sound.play_other_sound()
+                        self.sound.play_sound_level()
                         pg.time.set_timer(LOAD_NEW_LEVEL, 2000)  # Schedule next level load
                 else:
                     bucket.count_reset()
@@ -197,7 +187,7 @@ class Game:
         '''Draw the overall game. Should call individual item draw() methods'''
         # Clear the screen
         self.screen.fill('black')
-
+        # self.sound.play_explosion()
         # Only show the intro screen if we haven't loaded a level yet
         if self.intro_image:
             self.screen.blit(self.intro_image, (0, 0))  # Draw the intro image
@@ -286,7 +276,7 @@ class Game:
                 self.level_grain_dropping = True
                 # Disable the timer after the first trigger
                 pg.time.set_timer(START_FLOW, 0)
-                
+                #nonee
             elif event.type == LOAD_NEW_LEVEL:
                 pg.time.set_timer(LOAD_NEW_LEVEL, 0)  # Clear the timer
                 self.intro_image = None

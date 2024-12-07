@@ -148,7 +148,7 @@ class Bucket:
         # Check if the grain's position is within the bucket's bounding box
         if left <= grain_pos.x <= right and bottom <= grain_pos.y <= top:
             self.count += 1
-            self.sound = Sound()
+            
             if not sugar_grain.sound_played:
                 self.sound.play_sugardrop()
                 sugar_grain.sound_played = True
