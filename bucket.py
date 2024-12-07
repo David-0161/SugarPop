@@ -2,7 +2,7 @@
 # Module Name: Sugar Pop Bucket Module
 # Project: Sugar Pop Program
 # Date: Nov 17, 2024
-# By: Brett W. Huffman
+# By: David Ozoagu
 # Description: The bucket implementation of the sugar pop game
 #############################################################
 
